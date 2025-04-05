@@ -12,26 +12,75 @@ validationRules.saveCharacter = (req, res, next) => {
         desc: 'required|string',
         author: 'required|string'
     }
-    next();
+
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (status) {
+            next();
+        } else {
+            res.status(412).send({
+                success: false,
+                message: 'Validation failed.',
+                data: err
+            });
+        }
+    });
 }
 
 validationRules.saveInventory = (req, res, next) => {
     const validationRule = {
-        
+        name: 'required|string',
+        owner: 'string',
+        description: 'required|string',
+        value: 'int'
     }
-    next();
+
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (status) {
+            next();
+        } else {
+            res.status(412).send({
+                success: false,
+                message: 'Validation failed.',
+                data: err
+            });
+        }
+    });
 }
 
 validationRules.saveNote = (req, res, next) => {
     const validationRule = {
         
     }
+
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (status) {
+            next();
+        } else {
+            res.status(412).send({
+                success: false,
+                message: 'Validation failed.',
+                data: err
+            });
+        }
+    });
 }
 
 validationRules.savePlayer = (req, res, next) => {
     const validationRule = {
         
     }
+
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (status) {
+            next();
+        } else {
+            res.status(412).send({
+                success: false,
+                message: 'Validation failed.',
+                data: err
+            });
+        }
+    });
 }
 
 
