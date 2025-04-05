@@ -19,6 +19,7 @@ validationRules.saveInventory = (req, res, next) => {
     const validationRule = {
         
     }
+    next();
 }
 
 validationRules.saveNote = (req, res, next) => {
