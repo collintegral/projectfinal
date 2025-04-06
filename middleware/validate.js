@@ -8,7 +8,7 @@ validationRules.saveCharacter = (req, res, next) => {
         title: 'string',
         ancestry: 'required|string',
         class: 'required|string',
-        level: 'required|int',
+        level: 'required|integer',
         desc: 'required|string',
         author: 'required|string'
     }
@@ -31,7 +31,7 @@ validationRules.saveInventory = (req, res, next) => {
         name: 'required|string',
         owner: 'string',
         description: 'required|string',
-        value: 'int'
+        value: 'integer'
     }
 
     validator(req.body, validationRule, {}, (err, status) => {
