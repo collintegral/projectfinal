@@ -9,7 +9,7 @@ validationRules.saveCharacter = (req, res, next) => {
         ancestry: 'required|string',
         class: 'required|string',
         level: 'required|integer',
-        desc: 'required|string',
+        description: 'required|string',
         author: 'required|string'
     }
 

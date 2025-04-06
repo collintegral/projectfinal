@@ -45,7 +45,7 @@ characterController.createOne = async (req, res) => {
         ancestry: req.body.ancestry,
         class: req.body.class,
         level: req.body.level,
-        desc: req.body.description,
+        description: req.body.description,
         author: req.body.author
     }
 
@@ -72,7 +72,7 @@ characterController.updateOne = async (req, res) => {
         ancestry: req.body.ancestry,
         class: req.body.class,
         level: req.body.level,
-        desc: req.body.description,
+        description: req.body.description,
         author: req.body.author
     }
 
