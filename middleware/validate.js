@@ -49,7 +49,9 @@ validationRules.saveInventory = (req, res, next) => {
 
 validationRules.saveNote = (req, res, next) => {
     const validationRule = {
-        
+        name: "required|string",
+        content: "required|string",
+        past: "required|boolean"
     }
 
     validator(req.body, validationRule, {}, (err, status) => {
@@ -67,7 +69,10 @@ validationRules.saveNote = (req, res, next) => {
 
 validationRules.savePlayer = (req, res, next) => {
     const validationRule = {
-        
+        name: "required|string",
+        username: "required|string",
+        charname: "string",
+        bio: "string"
     }
 
     validator(req.body, validationRule, {}, (err, status) => {

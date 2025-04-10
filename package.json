@@ -1,17 +1,24 @@
 {
+  "jest": {
+    "preset": "@shelf/jest-mongodb"
+  },
   "scripts": {
     "start": "node app.js",
-    "swagger": "node ./swagger.js"
+    "swagger": "node ./swagger.js",
+    "test": "jest --coverage"
   },
   "dependencies": {
+    "@shelf/jest-mongodb": "^5.1.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
+    "jest": "^29.7.0",
     "mongodb": "^6.15.0",
     "passport": "^0.7.0",
     "passport-github2": "^0.1.12",
+    "supertest": "^7.1.0",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1",
     "validatorjs": "^3.22.1"
@@ -20,7 +27,6 @@
   "version": "1.0.0",
   "description": "Final Project for CSE 341",
   "main": "app.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/collintegral/projectfinal.git"

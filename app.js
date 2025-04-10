@@ -63,10 +63,12 @@ process.on('uncaughtException', (err, origin) => {
     console.log(process.stderr.id, `Caught Exception ${err}\nException Origin: ${origin}`);
 });
 
-mongo.initDb((err) => {
+mongo.initDb(async (err) => {
     if(err) {
         console.log(err);
     } else {
-        app.listen(port, () => { console.log(`Database is listening. Node running on port ${port}`) });
+        await app.listen(port, () => { console.log(`Database is listening. Node running on port ${port}`) });
     }
 });
+
+module.exports = app;

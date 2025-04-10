@@ -26,7 +26,7 @@ inventoryController.readOne = async (req, res) => {
         .collection('inventory')
         .find({name: inventoryName})
         .toArray();
-        if (!result) {
+        if (result.length === 0 | !result) {
             res.status(404).json('An error occurred while retrieving from the database. Perhaps try a different name?');
             return;
         }
@@ -52,7 +52,7 @@ inventoryController.createOne = async (req, res) => {
         if(result.acknowledged) {
             res.status(204).send();
         } else {
-            res.status(500).json(response.error || 'An error occurred while creating the inventory item.')
+            res.status(500).json('An error occurred while creating the inventory item.')
         }
     } catch(err) {
         res.status(404).json({ message: err });
@@ -76,7 +76,7 @@ inventoryController.updateOne = async (req, res) => {
         if(result.modifiedCount > 0) {
             res.status(204).send();
         } else {
-            res.status(500).json(response.error || 'An error occurred while creating the inventory item.')
+            res.status(500).json('An error occurred while updating the inventory item.')
         }
     } catch(err) {
         res.status(404).json({ message: err });
@@ -93,7 +93,7 @@ inventoryController.deleteOne = async (req, res) => {
         if(result.deletedCount > 0) {
             res.status(204).send();
         } else {
-            res.status(500).json(response.error || 'An error occurred while creating the inventory item.')
+            res.status(500).json('An error occurred while deleting the inventory item.')
         }
     } catch(err) {
         res.status(404).json({ message: err });

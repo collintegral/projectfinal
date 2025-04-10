@@ -8,10 +8,10 @@ const validator = require('../middleware/validate');
 router.get('/', inventoryController.readAll);
 router.get('/:name', inventoryController.readOne);
 
-router.post('/', validator.saveInventory, inventoryController.createOne);
+router.post('/', isAuthenticated, validator.saveInventory, inventoryController.createOne);
 
-router.put('/:name', validator.saveInventory, inventoryController.updateOne);
+router.put('/:name', isAuthenticated, validator.saveInventory, inventoryController.updateOne);
 
-router.delete('/:name', inventoryController.deleteOne);
+router.delete('/:name', isAuthenticated, inventoryController.deleteOne);
 
 module.exports = router;

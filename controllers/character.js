@@ -26,7 +26,7 @@ characterController.readOne = async (req, res) => {
         .collection('characters')
         .find({name: characterName})
         .toArray();
-        if (!result) {
+        if (result.length === 0 | !result) {
             res.status(404).json('An error occurred while retrieving from the database. Perhaps try a different name?');
             return;
         }
@@ -55,7 +55,7 @@ characterController.createOne = async (req, res) => {
         if(result.acknowledged) {
             res.status(204).send();
         } else {
-            res.status(500).json(response.error || 'An error occurred while creating the character.')
+            res.status(500).json('An error occurred while creating the character.')
         }
     } catch(err) {
         res.status(404).json({ message: err });
@@ -82,7 +82,7 @@ characterController.updateOne = async (req, res) => {
         if(result.modifiedCount > 0) {
             res.status(204).send();
         } else {
-            res.status(500).json(response.error || 'An error occurred while creating the character.')
+            res.status(500).json('An error occurred while updating the character.')
         }
     } catch(err) {
         res.status(404).json({ message: err });
@@ -99,7 +99,7 @@ characterController.deleteOne = async (req, res) => {
         if(result.deletedCount > 0) {
             res.status(204).send();
         } else {
-            res.status(500).json(response.error || 'An error occurred while creating the character.')
+            res.status(500).json('An error occurred while deleting the character.')
         }
     } catch(err) {
         res.status(404).json({ message: err });
