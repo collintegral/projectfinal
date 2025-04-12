@@ -12,6 +12,6 @@ router.post('/', isAuthenticated, validator.savePlayer, playerController.createO
 
 router.put('/:id', isAuthenticated, validator.savePlayer, playerController.updateOne);
 
-router.delete(':id', isAuthenticated, playerController.deleteOne);
+router.delete('/:id', isAuthenticated, playerController.deleteOne);
 
 module.exports = router;
