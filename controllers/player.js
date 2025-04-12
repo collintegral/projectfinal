@@ -84,7 +84,7 @@ playerController.updateOne = async (req, res) => {
         let result = await mongodb.getDatabase()
         .db()
         .collection('players')
-        .updateOne({_id: playerId}, player);
+        .replaceOne({_id: playerId}, player);
 
         if(result.modifiedCount > 0) {
             res.status(204).send();
